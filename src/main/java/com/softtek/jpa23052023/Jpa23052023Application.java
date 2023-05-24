@@ -157,6 +157,7 @@ public class Jpa23052023Application implements CommandLineRunner {
         ps.obtenerProductos().stream()
                 .sorted(Comparator.comparing(Producto::getCategoria)
                         .thenComparing(Comparator.comparing(Producto::getPrecio).reversed()))
+                .map(producto -> producto.getCategoria() + " " + producto.getPrecio())
                 .forEach(System.out::println);
 
         //Obtener la información de la tabla de Clientes, Customerid, CompanyName, city, country ordenar por pais,
