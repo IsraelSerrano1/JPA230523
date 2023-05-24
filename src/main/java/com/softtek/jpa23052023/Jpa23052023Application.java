@@ -164,7 +164,7 @@ public class Jpa23052023Application implements CommandLineRunner {
         System.out.println("\n Obtener la información de la tabla de Clientes, Customerid, CompanyName, " +
                 "city, country ordenar por pais, ciudad de forma ascendente");
         cs.obtenerClientes().stream().sorted(Comparator.comparing(Cliente::getCity)
-                        .thenComparing(Comparator.comparing(Cliente::getCountry)))
+                        .thenComparing((Cliente::getCountry)))
                 .forEach(System.out::println);
 
         //Obtener los productos productid, productname, categoryid, supplierid
